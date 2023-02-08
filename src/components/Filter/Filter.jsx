@@ -2,7 +2,7 @@ import React from 'react';
 import css from './Filter.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFilter } from 'redux/filter';
-import { getFilter } from 'redux/selectors';
+import { selectFilter } from 'redux/selectors';
 
 const Filters = () => {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ const Filters = () => {
   const onFilterChange = query => {
     dispatch(addFilter(query.toLowerCase()));
   };
-  const filter = useSelector(getFilter);
+  const filter = useSelector(selectFilter);
 
   return (
     <label htmlFor="InputId" className={css.Label}>

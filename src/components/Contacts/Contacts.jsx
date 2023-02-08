@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import css from './Contacts.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { deleteContact } from 'redux/contacts';
+import { deleteContact } from 'redux/operations';
 import { selectFilteredContacts } from 'redux/selectors';
 const Contacts = () => {
   const contacts = useSelector(selectFilteredContacts);
   const dispatch = useDispatch();
 
-  const onDelContact = id => {
+  const onDeleteContact = id => {
   dispatch(deleteContact(id));
   };
   return  (<ul className={css.List}>
@@ -20,7 +20,7 @@ const Contacts = () => {
         </p>
         <button
           type="button"
-          onClick={() => onDelContact(id)}
+          onClick={() => onDeleteContact(id)}
           className={css.Btn}
         >
           Delete
